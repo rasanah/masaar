@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#123a34" />
+  <title>منصة مسار الاستراتيجية والأداء</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-mark">م</div>
+        <div>
+          <h1>مسار</h1>
+          <p>الاستراتيجية والأداء المؤسسي</p>
+        </div>
+      </div>
+
+      <div class="plan-switcher">
+        <label>الخطة الحالية</label>
+        <select id="planSelect"></select>
+        <div class="switch-actions">
+          <button class="mini-btn" id="newPlanBtn">خطة جديدة</button>
+          <button class="mini-btn ghost" id="duplicatePlanBtn">نسخ</button>
+        </div>
+      </div>
+
+      <div class="progress-card">
+        <div class="progress-head">
+          <span>اكتمال الخطة</span>
+          <strong id="overallProgressText">0%</strong>
+        </div>
+        <div class="progress-track"><span id="overallProgressBar"></span></div>
+        <small id="progressHint">ابدأ بتهيئة المنظمة</small>
+      </div>
+
+      <nav id="stageNav" class="stage-nav"></nav>
+
+      <div class="sidebar-footer">
+        <button id="exportJsonBtn" class="footer-btn">تصدير نسخة احتياطية</button>
+        <label class="footer-btn file-label">
+          استيراد نسخة
+          <input id="importJsonInput" type="file" accept=".json" hidden />
+        </label>
+        <button id="printBtn" class="footer-btn ghost">طباعة التقرير</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <button class="icon-btn mobile-only" id="menuBtn">☰</button>
+          <span class="eyebrow">من التشخيص إلى الأثر</span>
+          <h2 id="pageTitle">لوحة التحكم</h2>
+        </div>
+        <div class="top-actions">
+          <span class="save-state" id="saveState">تم الحفظ</span>
+          <button class="btn ghost" id="reviewPlanBtn">فحص الاتساق</button>
+          <button class="btn primary" id="generateReportBtn">توليد التقرير</button>
+        </div>
+      </header>
+
+      <section id="content" class="content"></section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <dialog id="modal">
+    <form method="dialog" class="modal-card">
+      <div class="modal-head">
+        <h3 id="modalTitle">عنوان</h3>
+        <button value="cancel" class="icon-btn">×</button>
+      </div>
+      <div id="modalBody"></div>
+      <div class="modal-actions">
+        <button value="cancel" class="btn ghost">إغلاق</button>
+        <button id="modalConfirmBtn" value="default" class="btn primary">اعتماد</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
